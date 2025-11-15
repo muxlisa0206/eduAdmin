@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashbord</title>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <script defer src="/js/main.js"></script>
+</head>
+<body class="bg-[#F9FAFB]">
+    <header class="fixed z-1 w-full top-0">
+        <div class="pl-[250px] py-[25px] bg-[#FFFFFF] border-b-1 border-[gray]/40">
+            <h1 class="text-[25px] font-medium">School Management System</h1>
+        </div>
+    </header>
+
+    <aside class="fixed z-2 h-full max-w-[240px] w-full bg-[#FFFFFF] border-1 border-[gray]/40">
+        <div class="flex gap-2 items-center py-[25px] px-[20px] border-b-1 border-[gray]/40">
+            <img class="bg-gradient-to-b from-[#4A8CFF] to-[#A64DFF] w-[35px] h-[35px] rounded-[10px]" src="/images/edu.svg" alt="edu">
+            <p class="font-[500]">EduAdmin</p>
+        </div>
+       <div class="flex flex-col gap-5 px-[20px] pt-[20px]">
+            <a href="/index.html" class="bg-gradient-to-b from-[#4A8CFF] to-[#A64DFF] px-3 py-[5px] shadow-[0_10px_25px_5px_rgba(106,141,255,0.45)] w-[200px] rounded-[7px] flex gap-1 items-center">
+                <img class="w-[35px] h-[35px]" src="/images/dashw.svg" alt="dashboardimage">
+                <p class="text-white font-[500]">Dashboard</p>
+            </a>
+            <a href="/pages/teachers.html" class=" px-3 py-[5px] w-[200px] rounded-[7px] flex gap-1 items-center hover:bg-[gray]/10 hover:rounded-[7px] duration-500">
+                <img class="w-[35px] h-[35px]" src="/images/teacherb.svg" alt="dashboardimage">
+                <p class="text-black font-[500]">Teachers</p>
+            </a>
+            <a href="/pages/students.html" class="px-3 py-[5px] w-[200px] rounded-[7px] flex gap-1 items-center hover:bg-[gray]/10 hover:rounded-[7px] duration-500">
+                <img class="w-[35px] h-[35px]" src="/images/students.svg" alt="dashboardimage">
+                <p class="text-black font-[500]">Students</p>
+            </a>
+       </div>
+    </aside>
+
+    <main class="pt-[100px] pl-[260px] flex flex-col gap-5 mr-[30px] pb-[25px]">
+        <div>
+            <h1 class="text-[25px] font-bold">Dashboard Overview</h1>
+            <p class="text-[18px]">Welcome to your school management dashboard</p>
+        </div>
+        <div class="dashboardOverwiev grid grid-cols-4 gap-2">
+            <div class="bg-[#FFFFFF] hover:shadow-[0_10px_25px_5px_#DFE0E0] max-w-[280px] h-[130px] pb-[40px] w-full border-1 border-[gray]/40 px-[15px] pt-[15px] rounded-[8px] duration-500 flex items-center justify-between">
+                <div>
+                    <p>Total Teachers</p>
+                    <p>20</p>
+                </div>
+                <img class="w-[35px] h-[35px] bg-[#EFF6FF] p-[5px] rounded-[7px]" src="/images/peopleblue.svg" alt="">
+            </div>
+            <div class="bg-[#FFFFFF] hover:shadow-[0_10px_25px_5px_#DFE0E0] max-w-[280px] h-[130px] pb-[40px] w-full border-1 border-[gray]/40 px-[15px] pt-[15px] rounded-[8px] duration-500 flex items-center justify-between">
+                <div>
+                    <p>Total Students</p>
+                    <p>20</p>
+                </div>
+                <img class="w-[35px] h-[35px] bg-[#FAF5FF] p-[5px] rounded-[7px]" src="/images/studentp.svg" alt="">
+            </div>
+            <div class="bg-[#FFFFFF] hover:shadow-[0_10px_25px_5px_#DFE0E0] max-w-[280px] h-[130px] pb-[40px] w-full border-1 border-[gray]/40 px-[15px] pt-[15px] rounded-[8px] duration-500 flex items-center justify-between">
+                <div>
+                    <p>Avg Teacher Rating</p>
+                    <p>20</p>
+                </div>
+                <img class="w-[35px] h-[35px] bg-[#FEFCE8] p-[5px] rounded-[7px]" src="/images/star.svg" alt="">
+            </div>
+            <div class="bg-[#FFFFFF] hover:shadow-[0_10px_25px_5px_#DFE0E0] max-w-[280px] h-[130px] pb-[40px] w-full border-1 border-[gray]/40 px-[15px] pt-[15px] rounded-[8px] duration-500 flex items-center justify-between">
+                <div>
+                    <p>Avg Student Rating</p>
+                    <p>20</p>
+                </div>
+                <img class="w-[35px] h-[35px] bg-[#F0FDF4] p-[5px] rounded-[7px]" src="/images/increase-rate.svg" alt="">
+            </div>
+        </div>
+        <div class="grid grid-cols-2 gap-2">
+            <div class="bg-[#FFFFFF] border-1 border-[gray]/40 rounded-[17px] p-[30px] max-w-[550px] w-full">
+                <h1 class="text-[20px]">Quick Actions</h1>
+                <a href="/pages/teachers.html" class="flex gap-3 items-center mt-[20px] bg-[#2A7DFF] hover:bg-[#165EFC] duration-500 p-[20px] rounded-[17px]">
+                    <img class="w-[35px] h-[35px]" src="/images/teacherw.svg" alt="">
+                    <div>
+                        <h1 class="text-white text-[20px]">Manage Teachers</h1>
+                        <p class="text-[#DBEAFE]">View and manage all teachers</p> 
+                    </div>
+                </a>
+                <a href="/pages/students.html" class="flex gap-3 items-center mt-[20px] bg-[#AB44FF] hover:bg-[#9915FB] duration-500 p-[20px] rounded-[17px]">
+                    <img class="w-[35px] h-[35px]" src="/images/edu.svg" alt="">
+                    <div>
+                        <h1 class="text-white text-[20px]">Manage Students</h1>
+                        <p class="text-[#DBEAFE]">View and manage all students</p> 
+                    </div>
+                </a>
+            </div>
+            <div class="bg-[#FFFFFF] border-1 border-[gray]/40 rounded-[17px] p-[30px] max-w-[550px] w-full">
+                <h1 class="text-[20px]">Recent Activity</h1>
+                <div class="flex gap-2 mt-[20px]">
+                    <div class="w-[8px] h-[8px] rounded-[50%] bg-[#175FFC] mt-[9px]"></div>
+                    <div>
+                        <p class="font-medium">New teacher added</p>
+                        <p class="text-[gray]/80">2 hours ago</p>
+                    </div>
+                </div>
+                <div class="flex gap-2 mt-[20px]">
+                    <div class="w-[8px] h-[8px] rounded-[50%] bg-[#00C951] mt-[9px]"></div>
+                    <div>
+                        <p class="font-medium">Student ratings updated</p>
+                        <p class="text-[gray]/80">5 hours ago</p>
+                    </div>
+                </div>
+                <div class="flex gap-2 mt-[20px]">
+                    <div class="w-[8px] h-[8px] rounded-[50%] bg-[#9A19FB] mt-[9px]"></div>
+                    <div>
+                        <p class="font-medium">New students enrolled</p>
+                        <p class="text-[gray]/80">1 day ago</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+</body>
+</html>

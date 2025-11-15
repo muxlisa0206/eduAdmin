@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Students</title>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <script defer src="/js/main.js"></script>
+    <script defer src="/js/students.js"></script>
+</head>
+<body class="bg-[#F9FAFB]">
+    <header class="fixed z-1 w-full top-0">
+        <div class="pl-[250px] py-[25px] bg-[#FFFFFF] border-b-1 border-[gray]/40">
+            <h1 class="text-[25px] font-medium">School Management System</h1>
+        </div>
+    </header>
+
+    <aside class="fixed z-2 h-full max-w-[240px] w-full bg-[#FFFFFF] border-1 border-[gray]/40">
+        <div class="flex gap-2 items-center py-[25px] px-[20px] border-b-1 border-[gray]/40">
+            <img class="bg-gradient-to-b from-[#4A8CFF] to-[#A64DFF] w-[35px] h-[35px] rounded-[10px]" src="/images/edu.svg" alt="edu">
+            <p class="font-[500]">EduAdmin</p>
+        </div>
+       <div class="flex flex-col gap-5 px-[20px] pt-[20px]">
+            <a href="/index.html" class="px-3 py-[5px] w-[200px] rounded-[7px] flex gap-1 items-center hover:bg-[gray]/10 hover:rounded-[7px] duration-500">
+                <img class="w-[35px] h-[35px]" src="/images/dashb.svg" alt="dashboardimage">
+                <p class="text-black font-[500]">Dashboard</p>
+            </a>
+            <a href="/pages/teachers.html" class="px-3 py-[5px] w-[200px] rounded-[7px] flex gap-1 items-center hover:bg-[gray]/10 hover:rounded-[7px] duration-500">
+                <img class="w-[35px] h-[35px]" src="/images/teacherb.svg" alt="dashboardimage">
+                <p class="text-black font-[500]">Teachers</p>
+            </a>
+            <a href="/pages/students.html" class="bg-gradient-to-b from-[#4A8CFF] to-[#A64DFF] shadow-[0_10px_25px_5px_rgba(106,141,255,0.45)] px-3 py-[5px] w-[200px] rounded-[7px] flex gap-1 items-center hover:bg-[gray]/10 hover:rounded-[7px] duration-500">
+                <img class="w-[35px] h-[35px]" src="/images/edu.svg" alt="dashboardimage">
+                <p class="text-white font-[500]">Students</p>
+            </a>
+       </div>
+    </aside>
+    <main class="pt-[100px] pl-[260px] flex flex-col gap-5 mr-[30px] pb-[25px]">
+        <div class="flex justify-between items-center">
+            <div>
+                <h1 class="text-[25px] font-bold">Students</h1>
+                <p class="text-[18px] studentsCount"></p>
+            </div>
+            <button class="bg-gradient-to-b from-[#4A8CFF] to-[#A64DFF] px-4 py-2 rounded-[11px] flex items-center justify-center text-white">+Add Students</button>
+        </div>
+        <input class="border-1 border-[gray]/40 bg-[#ffffff] py-1 px-3 rounded-[5px]" type="text" placeholder="Search students by name or email...">
+        <form class="flex gap-4">
+            <select class="bg-[#ffffff] border-1 border-[gray]/40 py-1 px-3 max-w-[150px] w-full rounded-[5px]">
+                <option value="All Gender">All Gender</option>
+                <option value="Male">Male</option>
+                <option value="Femail">Femail</option>
+            </select>
+            <select class="bg-[#ffffff] border-1 border-[gray]/40 py-1 px-3 max-w-[150px] w-full rounded-[5px]">
+                <option value="All Gender">All Age</option>
+                <option value="6-10">6-10</option>
+                <option value="11-14">11-14</option>
+                <option value="15-18">15-18</option>
+            </select>
+            <select class="bg-[#ffffff] border-1 border-[gray]/40 py-1 px-3 max-w-[150px] w-full rounded-[5px]">
+                <option value="All Gender">All Rating</option>
+                <option value="4.5+">4.5+</option>
+                <option value="4.0+">4.0+</option>
+                <option value="3.5+">3.5+</option>
+            </select>
+            <select class="bg-[#ffffff] border-1 border-[gray]/40 py-1 px-3 max-w-[150px] w-full rounded-[5px]">
+                <option value="All Gender">All Grade</option>
+                <option value="1-4">1-4</option>
+                <option value="5-8">5-8</option>
+                <option value="9-11">9-11</option>
+            </select>
+        </form>
+
+        <div class="allStudents grid grid-cols-3 gap-2">
+           
+        </div>
+
+        <div id="outerModal" class="hidden w-full p-[20px] h-full bg-black/30 fixed z-4 top-0 left-0 flex justify-center items-center">
+            <form id="innerModal" class="max-w-md mx-auto bg-white p-[30px] rounded-lg">
+                <div class="relative z-0 w-full mb-5 group">
+                    <input type="text" class="block py-2.5 px-0 w-full text-sm text-heading bg-transparent border-0 border-b-2" placeholder="image url"/>
+                </div>
+                <div class="relative z-0 w-full mb-5 group">
+                    <input type="text" class="block py-2.5 px-0 w-full text-sm text-heading bg-transparent border-0 border-b-2" placeholder="FullName" required />
+                </div>
+                <div class="relative z-0 w-full mb-5 group">
+                    <input type="text" class="block py-2.5 px-0 w-full text-sm text-heading bg-transparent border-0 border-b-2" placeholder="Profession" required />
+                </div>
+                <div class="grid md:grid-cols-2 md:gap-6">
+                <div class="relative z-0 w-full mb-5 group">
+                    <input type="number" class="block py-2.5 px-0 w-full text-sm text-heading bg-transparent border-0 border-b-2" placeholder="Age" required />
+                </div>
+                <div class="relative z-0 w-full mb-5 group">
+                    <input type="number" class="block py-2.5 px-0 w-full text-sm text-heading bg-transparent border-0 border-b-2" placeholder="Experience" required />
+                </div>
+                </div>
+                <div class="grid md:grid-cols-2 md:gap-6">
+                    <div class="relative z-0 w-full mb-5 group">
+                        <input type="text" class="block py-2.5 px-0 w-full text-sm text-heading bg-transparent border-0 border-b-2" placeholder="Gender"/>
+                    </div>
+                    <div class="relative z-0 w-full mb-5 group">
+                        <input type="text" class="block py-2.5 px-0 w-full text-sm text-heading bg-transparent border-0 border-b-2" placeholder="Rating"/>
+                    </div>
+                    </div>
+                <div class="grid md:grid-cols-2 md:gap-6">
+                <div class="relative z-0 w-full mb-5 group">
+                    <input type="tel" class="block py-2.5 px-0 w-full text-sm text-heading bg-transparent border-0 border-b-2" placeholder="Phone number" required />
+                </div>
+                <div class="relative z-0 w-full mb-5 group">
+                    <input type="text" class="block py-2.5 px-0 w-full text-sm text-heading bg-transparent border-0 border-b-2" placeholder="Telegramm"/>
+                </div>
+                </div>
+                <div class="grid md:grid-cols-2 md:gap-6">
+                    <div class="relative z-0 w-full mb-5 group">
+                        <input type="text" class="block py-2.5 px-0 w-full text-sm text-heading bg-transparent border-0 border-b-2" placeholder="Linkedin"/>
+                    </div>
+                    <div class="relative z-0 w-full mb-5 group">
+                        <input type="email" class="block py-2.5 px-0 w-full text-sm text-heading bg-transparent border-0 border-b-2" placeholder="Email" required />
+                    </div>
+                </div>
+                <button id="submitBtn" type="submit" class="text-white bg-gradient-to-b from-[#4A8CFF] to-[#A64DFF] font-medium rounded-[4px] text-sm px-4 py-2.5 cursor-pointer">Submit</button>
+            </form>
+        </div>
+    </main>
+</body>
+</html>

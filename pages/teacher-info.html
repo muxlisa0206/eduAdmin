@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Teacher info</title>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <script defer src="/js/main.js"></script>
+    <script defer src="/js/students.js"></script>
+    <script defer src="/js/teacher-info.js"></script>
+</head>
+<body class="bg-[#F9FAFB]">
+    <header class="fixed z-1 w-full top-0">
+        <div class="pl-[250px] py-[25px] bg-[#FFFFFF] border-b-1 border-[gray]/40">
+            <h1 class="text-[25px] font-medium">School Management System</h1>
+        </div>
+    </header>
+
+    <aside class="fixed z-2 h-full max-w-[240px] w-full bg-[#FFFFFF] border-1 border-[gray]/40">
+        <div class="flex gap-2 items-center py-[25px] px-[20px] border-b-1 border-[gray]/40">
+            <img class="bg-gradient-to-b from-[#4A8CFF] to-[#A64DFF] w-[35px] h-[35px] rounded-[10px]" src="/images/edu.svg" alt="edu">
+            <p class="font-[500]">EduAdmin</p>
+        </div>
+        <div class="flex flex-col gap-5 px-[20px] pt-[20px]">
+            <a href="/index.html" class="px-3 py-[5px] w-[200px] rounded-[7px] flex gap-1 items-center hover:bg-[gray]/10 hover:rounded-[7px] duration-500">
+                <img class="w-[35px] h-[35px]" src="/images/dashb.svg" alt="dashboardimage">
+                <p class="text-black font-[500]">Dashboard</p>
+            </a>
+            <a href="/pages/teachers.html" class="bg-gradient-to-b from-[#4A8CFF] to-[#A64DFF] shadow-[0_10px_25px_5px_rgba(106,141,255,0.45)]  px-3 py-[5px] w-[200px] rounded-[7px] flex gap-1 items-center duration-500">
+                <img class="w-[35px] h-[35px]" src="/images/teacherw.svg" alt="dashboardimage">
+                <p class="text-white font-[500]">Teachers</p>
+            </a>
+            <a href="/pages/students.html" class="px-3 py-[5px] w-[200px] rounded-[7px] flex gap-1 items-center hover:bg-[gray]/10 hover:rounded-[7px] duration-500">
+                <img class="w-[35px] h-[35px]" src="/images/students.svg" alt="dashboardimage">
+                <p class="text-black font-[500]">Students</p>
+            </a>
+       </div>
+    </aside>
+
+    <main class="pt-[100px] pl-[260px] flex flex-col gap-5 mr-[30px] pb-[25px]">
+        <div>
+            <a class=" px-3 py-[5px] w-[200px] rounded-[7px] flex gap-1 items-center hover:bg-[gray]/10 hover:rounded-[7px] duration-500 font-bold" href="/pages/teachers.html">< Back to Teachers</a>
+        </div>
+
+        <div class="flex justify-between gap-[20px] mt-[30px]">
+            <div class="teacherInfo w-[350px]">
+
+            </div>
+            <div class="w-[650px] border-1 border-[gray]/40 bg-[#ffffff] rounded-[14px] p-[20px] pb-[100px] flex flex-col gap-3">
+                <h1 class="font-bold text-[22px]">Teacher's students</h1>
+                <div class="teacherStudent flex flex-col gap-3">
+
+                </div>
+            </div>
+        </div>
+    </main>
+</body>
+</html>
